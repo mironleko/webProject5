@@ -1,6 +1,5 @@
-// PhotoCapturePage.tsx
 import React, { useState } from 'react';
-import Camera from '../components/Camera'; // Ensure this path matches your project structure
+import Camera from '../components/Camera';
 import { useRouter } from 'next/router';
 
 const PhotoCapturePage = () => {
@@ -34,7 +33,7 @@ const PhotoCapturePage = () => {
         });
 
         if (response.ok) {
-          router.push('/my-page'); // Replace with your desired route
+          router.push('/my-page');
         } else {
           const errorData = await response.json();
           console.error('Upload failed:', errorData.message);
@@ -46,7 +45,7 @@ const PhotoCapturePage = () => {
   };
 
   const navigateToMyPage = () => {
-    router.push('/my-page'); // Replace with the actual path to MyPage
+    router.push('/my-page');
   };
 
   return (

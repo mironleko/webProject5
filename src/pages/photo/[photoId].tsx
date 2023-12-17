@@ -40,7 +40,7 @@ const PhotoDetailPage = () => {
   }, [photoId]);
 
   const handleBack = () => {
-    router.back(); // Go back to the previous page
+    router.push("/my-page");
   };
 
   const handleCommentSubmit = async (e: React.FormEvent) => {

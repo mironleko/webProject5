@@ -1,4 +1,3 @@
-// pages/api/upload-photo.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from '@auth0/nextjs-auth0';
 import { PrismaClient } from '@prisma/client';

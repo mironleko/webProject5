@@ -1,4 +1,3 @@
-// Camera.tsx
 import React, { useRef, useState, useEffect } from 'react';
 
 interface CameraProps {

@@ -1,4 +1,3 @@
-// pages/callback.tsx
 import React, { useEffect } from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useRouter } from 'next/router';

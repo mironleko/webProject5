@@ -20,7 +20,7 @@ const AllPhotosPage = () => {
       .catch((error) => console.error('Error fetching photos:', error));
   }, []);
   const navigateToMyPage = () => {
-    router.push('/my-page'); // Navigate to My Page
+    router.push('/my-page');
   };
   return (
     <div className="container mx-auto p-4">

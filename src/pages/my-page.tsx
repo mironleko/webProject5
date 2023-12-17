@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 interface Photo {
   id: string;
-  imageData: string; // Assuming imageData contains Base64 encoded string
+  imageData: string;
   title: string;
 }
 
@@ -17,7 +17,7 @@ const MyPage = () => {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await fetch('/api/get-user-photos'); // Adjust the API endpoint as needed
+        const response = await fetch('/api/get-user-photos');
         if (!response.ok) {
           throw new Error('Failed to fetch photos');
         }
@@ -37,7 +37,7 @@ const MyPage = () => {
     router.push('/photo-capture');
   };
   const navigateToAllPhotos = () => {
-    router.push('/all-photos'); // Route to your all photos page
+    router.push('/all-photos')
   };
 
   if (!user) {
@@ -65,7 +65,6 @@ const MyPage = () => {
 
       <div className="grid grid-cols-3 gap-4">
         {photos.map((photo) => (
-          // Wrap each image with a Link to the photo detail page
           <Link key={photo.id} href={`/photo/${photo.id}`}>
             
               <div className="bg-white rounded-lg overflow-hidden shadow-md">

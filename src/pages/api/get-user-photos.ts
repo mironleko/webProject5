@@ -1,4 +1,3 @@
-// pages/api/get-user-photos.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from '@auth0/nextjs-auth0';
 import { PrismaClient } from '@prisma/client';
@@ -12,7 +11,6 @@ export default async function getUserPhotos(req: NextApiRequest, res: NextApiRes
   }
 
   try {
-    // Fetch the user based on auth0Id
     const user = await prisma.user.findUnique({
       where: {
         auth0Id: session.user.sub,
@@ -23,7 +21,6 @@ export default async function getUserPhotos(req: NextApiRequest, res: NextApiRes
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Fetch photos for the user
     const photos = await prisma.photo.findMany({
       where: {
         userId: user.id,

@@ -1,4 +1,3 @@
-// pages/api/all-photos.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient, User, Photo, Comment } from '@prisma/client';
 
@@ -12,10 +11,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const photos = await prisma.photo.findMany({
       include: {
-        user: true, // Includes the user data
+        user: true,
         comments: {
           include: {
-            user: true // Includes the user data for each comment
+            user: true
           }
         }
       }
