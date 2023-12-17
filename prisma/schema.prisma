@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  auth0Id   String   @unique // Field to store Auth0 user identifier
+  email     String   @unique
+  name      String?
+  photos    Photo[]
+  comments  Comment[]
+}
+
+
+model Photo {
+  id        Int      @id @default(autoincrement())
+  title     String
+  imageData String   
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  comments  Comment[]
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String
+  photo     Photo    @relation(fields: [photoId], references: [id])
+  photoId   Int
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?     // The '?' indicates that this field is optional (comment may not be associated with a user)
+}
